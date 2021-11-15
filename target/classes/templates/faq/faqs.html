@@ -89,7 +89,7 @@
                     <div th:each="faq : ${faqs}">
                         <span th:if="${faq.onTopic == 'life'}">
                             <li class="cd-faq__item">
-                                <a class="cd-faq__trigger" href="#0"><span th:text="${faq.question}"></span></a>
+                                <a class="cd-faq__trigger" href="#0"><span th:text="${faq.question}" style="color: #FE6C0B"></span></a>
                                 <div class="cd-faq__content">
                                     <div class="text-component">
                                         <p th:text="${faq.answer}"></p>
@@ -109,7 +109,7 @@
                     <div th:each="faq : ${faqs}">
                         <span th:if="${faq.onTopic == 'property'}">
                             <li class="cd-faq__item">
-                                <a class="cd-faq__trigger" href="#0"><span th:text="${faq.question}"></span></a>
+                                <a class="cd-faq__trigger" href="#0"><span th:text="${faq.question}" style="color: #FE6C0B"></span></a>
                                 <div class="cd-faq__content">
                                     <div class="text-component">
                                         <p th:text="${faq.answer}"></p>
@@ -129,7 +129,7 @@
                     <div th:each="faq : ${faqs}">
                         <span th:if="${faq.onTopic == 'vehicle'}">
                             <li class="cd-faq__item">
-                                <a class="cd-faq__trigger" href="#0"><span th:text="${faq.question}"></span></a>
+                                <a class="cd-faq__trigger" href="#0"><span th:text="${faq.question}" style="color: #FE6C0B"></span></a>
                                 <div class="cd-faq__content">
                                     <div class="text-component">
                                         <p th:text="${faq.answer}"></p>
