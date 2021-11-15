@@ -26,6 +26,7 @@
         <link rel="stylesheet" th:href="@{/css/profile.css}">
         <style>
             body {
+                background-image:  url('/images/background1.jpeg');
                 background-color: #2c3338;
 
             }
@@ -45,7 +46,9 @@
             <div th:replace="profile/userprofile::sidebar"></div>
             <div class="col d-flex flex-column">
                 <div id="vehicle" class="pt-5 text-center">
-                    <h1 class="h3 mb-3 font-weight-normal">Vehicles</h1>
+                    <h1 class="about-us-heading text-center mx-auto">Vehicles</h1>
+
+<!--                    <h1 class="h3 mb-3 font-weight-normal">Vehicles</h1>-->
                     <div class="card mx-auto col-md-10 col-12 my-4" th:each="vehicle : ${vehicles}">
                         <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Vehicle</p>
                         <h2 class="card-body text-color-dark-blue"
@@ -56,7 +59,9 @@
                             Vehicle</button></a>
                 </div>
                 <div id="property" class="pt-5 text-center">
-                    <h1 class="h3 mb-3 font-weight-normal">Property</h1>
+                    <h1 class="about-us-heading text-center mx-auto">Property</h1>
+
+<!--                    <h1 class="h3 mb-3 font-weight-normal">Property</h1>-->
                     <div class="card mx-auto col-md-10 col-12 my-4" th:each="property : ${properties}">
                         <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Property</p>
                         <h2 class="card-body text-color-dark-blue" th:text="${'Property Name: '+property.getName()}">
@@ -67,7 +72,9 @@
                             Property</button></a>
                 </div>
                 <div id="policies" class="pt-5 text-center">
-                    <h1 class="h3 mb-3 font-weight-normal">Bought Policies</h1>
+                    <h1 class="about-us-heading text-center mx-auto">Active Policies</h1>
+
+<!--                                        <h1 class="h3 mb-3 font-weight-normal">Bought Policies</h1>-->
                     <div class="card mx-auto col-md-10 col-12 my-4" th:each="policy: ${policies}">
                         <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Policy</p>
                         <div class="card-body">
@@ -92,8 +99,10 @@
                 </div>
                 <div id="activeclaims" class="pt-5 text-center">
                     <div th:fragment="claimlist">
-                        <h1 class="h3 mb-3 font-weight-normal">Active Claims</h1>
-                        <p class="section-header mt-5 font-weight-bold">
+                        <h1 class="about-us-heading text-center mx-auto">Unsetteled Claims</h1>
+
+<!--                        <h1 class="h3 mb-3 font-weight-normal">Active Claims</h1>-->
+                        <p class="section-header mt-5 font-weight-bold" style=" font-size: 25px ; color: #FFECDA">
                             H E A L T H <span class="pl-2">C</span> L A I M S
                         </p>
                         <div class="card mx-auto col-md-10 col-12 my-4" th:each="claim: ${healthClaims}">
@@ -105,7 +114,7 @@
                                 <p class=" text-color-dark-blue" th:text="${'Status: '+claim.getStatus()}"></p>
                             </div>
                         </div>
-                        <p class="section-header mt-5 font-weight-bold">
+                        <p class="section-header mt-5 font-weight-bold" style=" font-size: 25px ; color: #FFECDA">
                             V E H I C L E <span class="pl-2">C</span> L A I M S
                         </p>
                         <div class="card mx-auto col-md-10 col-12 my-4" th:each="claim: ${vehicleClaims}">
@@ -118,7 +127,7 @@
                                 <p class=" text-color-dark-blue" th:text="${'Status: '+claim.getStatus()}"></p>
                             </div>
                         </div>
-                        <p class="section-header mt-5 font-weight-bold">
+                        <p class="section-header mt-5 font-weight-bold" style=" font-size: 25px ; color: #FFECDA">
                             P R O P E R T Y <span class="pl-2">C</span> L A I M S
                         </p>
                         <div class="card mx-auto col-md-10 col-12 my-4" th:each="claim: ${propertyClaims}">
@@ -134,11 +143,55 @@
                     </div>
                 </div>
                 <div id="processedclaims" class="pt-5 text-center">
-                    <h1 class="h3 mb-3 font-weight-normal">Processed Claims</h1>
-                    <div th:replace="profile/activeClaims :: claimlist"></div>
+                    <h1 class="about-us-heading text-center mx-auto">Passes Claims</h1>
+
+<!--                    <h1 class="h3 mb-3 font-weight-normal">Processed Claims</h1>-->
+                    <div th:fragment="claimlist">
+<!--                        <h1 class="h3 mb-3 font-weight-normal">Active Claims</h1>-->
+                        <p class="section-header mt-5 font-weight-bold" style=" font-size: 25px ; color: #FFECDA" >
+                            H E A L T H <span class="pl-2">C</span> L A I M S
+                        </p>
+                        <div class="card mx-auto col-md-10 col-12 my-4" th:each="claim: ${phealthClaims}">
+                            <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Claim</p>
+                            <div class="card-body">
+                                <h2 class=" text-color-dark-blue" th:text="${'Claim ID: '+claim.getId()}"></h2>
+                                <p class=" text-color-dark-blue" th:text="${'Damage Amount: $'+claim.getDamage()}"></p>
+                                <p class=" text-color-dark-blue" th:text="${'Claim Amount: $'+claim.getAmount()}"></p>
+                                <p class=" text-color-dark-blue" th:text="${'Status: '+claim.getStatus()}"></p>
+                            </div>
+                        </div>
+                        <p class="section-header mt-5 font-weight-bold" style=" font-size: 25px ; color: #FFECDA">
+                            V E H I C L E <span class="pl-2">C</span> L A I M S
+                        </p>
+                        <div class="card mx-auto col-md-10 col-12 my-4" th:each="claim: ${pvehicleClaims}">
+                            <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Claim</p>
+                            <div class="card-body">
+                                <h2 class=" text-color-dark-blue" th:text="${'Claim ID: '+claim.getId()}"></h2>
+                                <p class=" text-color-dark-blue" th:text="${'Damage Amount: $'+claim.getDamage()}"></p>
+                                <p class=" text-color-dark-blue" th:text="${'Claim Amount: $'+claim.getAmount()}"></p>
+                                <p class=" text-color-dark-blue" th:text="${'On Vehicle: '+claim.getVehicleId()}"></p>
+                                <p class=" text-color-dark-blue" th:text="${'Status: '+claim.getStatus()}"></p>
+                            </div>
+                        </div>
+                        <p class="section-header mt-5 font-weight-bold" style=" font-size: 25px ; color: #FFECDA">
+                            P R O P E R T Y <span class="pl-2">C</span> L A I M S
+                        </p>
+                        <div class="card mx-auto col-md-10 col-12 my-4" th:each="claim: ${ppropertyClaims}">
+                            <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Claim</p>
+                            <div class="card-body">
+                                <h2 class=" text-color-dark-blue" th:text="${'Claim ID: '+claim.getId()}"></h2>
+                                <p class=" text-color-dark-blue" th:text="${'Damage Amount: $'+claim.getDamage()}"></p>
+                                <p class=" text-color-dark-blue" th:text="${'Claim Amount: $'+claim.getAmount()}"></p>
+                                <p class=" text-color-dark-blue" th:text="${'On Property: '+claim.getPropertyId()}"></p>
+                                <p class=" text-color-dark-blue" th:text="${'Status: '+claim.getStatus()}"></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div id="transactions" class="pt-5 text-center">
-                    <h1 class="h3 mb-3 font-weight-normal">Transactions</h1>
+                    <h1 class="about-us-heading text-center mx-auto">Transaction Details</h1>
+
+<!--                    <h1 class="h3 mb-3 font-weight-normal">Transactions</h1>-->
                     <div class="card mx-auto col-md-10 col-12 my-4" th:each="transaction:${transactions}">
                         <p class="card-header px-0 bg-theme1 text-white font-weight-bold">Transaction ID: <span
                                 th:text="${transaction.getReceiptNumber()}"></span> </p>

@@ -12,6 +12,7 @@
         <link rel="stylesheet" th:href="@{/css/login.css}">
         <style>
             body {
+                background-image:  url('/images/background1.jpeg');
                 background-color: #2c3338;
             }
 
@@ -23,7 +24,8 @@
         <div class="form-div">
             <form class="form-signin form login" th:action="@{/self/property/add}" method="post"
                 enctype="multipart/form-data">
-                <h1 class="h3 mb-3 font-weight-normal">Add Property</h1>
+                <h1 class="about-us-heading text-center mx-auto">Add Property</h1>
+<!--                <h1 class="h3 mb-3 font-weight-normal">Add Property</h1>-->
 
 
                 <input class="form__input" placeholder="Property Name" type="text" th:field="*{property.name}" required>

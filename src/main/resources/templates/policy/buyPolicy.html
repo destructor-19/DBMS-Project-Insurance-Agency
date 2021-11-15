@@ -15,37 +15,138 @@
         <div th:replace="homepage::navbar"></div>
 
         <div class="form-div" th:if="${onVehicle}">
-            <form class="form-signin form login" th:action="@{/policy/{id}/buy(id=${policy.getId()})}" method="post"
-                th:object="${onVehicle}">
 
-                <img class="mb-3 mx-auto bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="100"
-                    height="100">
 
-                <select class="form__input" name="objectId" required>
-                    <option th:each="vehicle: ${vehicles}" th:value="${vehicle.getId()}"
-                        th:text="${vehicle.getVehicleNumber()}"></option>
-                </select>
-                <input class="form__input" type="text" placeholder="card number" required>
-                <input class="form__input" type="text" placeholder="cvv" required>
-                <input class="form__input" type="date" placeholder="expiry date" required>
-                <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Submit</button>
+
+            <form class="" th:action="@{/policy/{id}/buy(id=${policy.getId()})}" method="post" th:object="${onVehicle}">
+                <div class="app-container">
+                    <div class="top-box">
+                        <p><span class="left-icon"></span>CHECKOUT<span class="right-icon"></span></p>
+                    </div>
+
+                    <div class="middle-box">
+                        <p>Pay : </p>
+                        <h1 th:text="${policy.getPremium()}"></h1>
+                    </div>
+
+                    <div class="card-details">
+                        <p>Pay using credit or debit card</p>
+                        <select class="form__input" name="objectId" required>
+                            <option th:each="vehicle: ${vehicles}" th:value="${vehicle.getId()}"
+                                    th:text="${vehicle.getVehicleNumber()}"></option>
+                        </select>
+
+                        <input class="form__input" type="text" value="0" name="objectId" hidden>
+
+                        <div class="card-num-field-group">
+                            <label>Card Number</label><br>
+                            <input type="text" class="card-num-field" placeholder="card number" required>
+                        </div>
+
+                        <div class="date-field-group">
+                            <label>Expiry Date</label><br>
+                            <input type="date" class="date-field" placeholder="expiry date" required>
+                        </div>
+
+                        <div class="cvc-field-group">
+                            <label>CVC</label><br>
+                            <input type="password" class="cvc-field" placeholder="cvv" required>
+                        </div>
+
+                        <button type="submit" class="pay-btn">Pay Now</button>
+
+                    </div>
+
+                </div>
             </form>
+
+
+
+
+<!--            <form class="form-signin form login" th:action="@{/policy/{id}/buy(id=${policy.getId()})}" method="post"-->
+<!--                th:object="${onVehicle}">-->
+
+<!--                <img class="mb-3 mx-auto bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="100"-->
+<!--                    height="100">-->
+
+<!--                <select class="form__input" name="objectId" required>-->
+<!--                    <option th:each="vehicle: ${vehicles}" th:value="${vehicle.getId()}"-->
+<!--                        th:text="${vehicle.getVehicleNumber()}"></option>-->
+<!--                </select>-->
+<!--                <input class="form__input" type="text" placeholder="card number" required>-->
+<!--                <input class="form__input" type="text" placeholder="cvv" required>-->
+<!--                <input class="form__input" type="date" placeholder="expiry date" required>-->
+<!--                <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Submit</button>-->
+<!--            </form>-->
         </div>
         <div class="form-div" th:if="${onProperty}">
-            <form class="form-signin form login" th:action="@{/policy/{id}/buy(id=${policy.getId()})}" method="post"
-                th:object="${onProperty}">
-                <img class="mb-3 mx-auto bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="100"
-                    height="100">
 
-                <select class="form__input" name="objectId" required>
-                    <option th:each="property : ${properties}" th:value="${property.getId()}"
-                        th:text="${property.getName()}"></option>
-                </select>
-                <input class="form__input" type="text" placeholder="card number" required>
-                <input class="form__input" type="text" placeholder="cvv" required>
-                <input class="form__input" type="date" placeholder="expiry date" required>
-                <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Submit</button>
+
+
+
+
+            <form class="" th:action="@{/policy/{id}/buy(id=${policy.getId()})}" method="post" th:object="${onProperty}">
+                <div class="app-container">
+                    <div class="top-box">
+                        <p><span class="left-icon"></span>CHECKOUT<span class="right-icon"></span></p>
+                    </div>
+
+                    <div class="middle-box">
+                        <p>Pay : </p>
+                        <h1 th:text="${policy.getPremium()}"></h1>
+                    </div>
+
+                    <div class="card-details">
+                        <p>Pay using credit or debit card</p>
+                        <select class="form__input" name="objectId" required>
+                            <option th:each="property : ${properties}" th:value="${property.getId()}"
+                                    th:text="${property.getName()}"></option>
+                        </select>
+
+                        <input class="form__input" type="text" value="0" name="objectId" hidden>
+
+                        <div class="card-num-field-group">
+                            <label>Card Number</label><br>
+                            <input type="text" class="card-num-field" placeholder="card number" required>
+                        </div>
+
+                        <div class="date-field-group">
+                            <label>Expiry Date</label><br>
+                            <input type="date" class="date-field" placeholder="expiry date" required>
+                        </div>
+
+                        <div class="cvc-field-group">
+                            <label>CVC</label><br>
+                            <input type="password" class="cvc-field" placeholder="cvv" required>
+                        </div>
+
+                        <button type="submit" class="pay-btn">Pay Now</button>
+
+                    </div>
+
+                </div>
             </form>
+
+
+
+
+
+
+
+<!--            <form class="form-signin form login" th:action="@{/policy/{id}/buy(id=${policy.getId()})}" method="post"-->
+<!--                th:object="${onProperty}">-->
+<!--&lt;!&ndash;                <img class="mb-3 mx-auto bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="100"&ndash;&gt;-->
+<!--&lt;!&ndash;                    height="100">&ndash;&gt;-->
+
+<!--                <select class="form__input" name="objectId" required>-->
+<!--                    <option th:each="property : ${properties}" th:value="${property.getId()}"-->
+<!--                        th:text="${property.getName()}"></option>-->
+<!--                </select>-->
+<!--                <input class="form__input" type="text" placeholder="card number" required>-->
+<!--                <input class="form__input" type="text" placeholder="cvv" required>-->
+<!--                <input class="form__input" type="date" placeholder="expiry date" required>-->
+<!--                <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Submit</button>-->
+<!--            </form>-->
         </div>
         <div class="form-div" th:unless="${onProperty} or ${onVehicle}">
             <!--    <form class="form-signin form login" th:action="@{/policy/{id}/buy(id=${policy.getId()})}" method="post" >-->
