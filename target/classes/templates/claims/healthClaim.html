@@ -17,10 +17,11 @@
         <div class="form-div">
             <form class="form-signin form login" th:action="@{/claims/health/{id}(id=${healthClaim.getRecordId()})}"
                 method="post" enctype="multipart/form-data">
-                <img class="mb-3 bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="100"
-                    height="100">
-                <input class="form__input" placeholder="Damage Amount" th:field="*{healthClaim.damage}" type="number">
-                <input class="form__input" placeholder="Date of Loss" name="date" type="date">
+                <h3>Abhay Insurance Agency</h3>
+<!--                <img class="mb-3 bg-dark p-3 rounded-circle" th:src="@{/images/logo.svg}" alt="" width="100"-->
+<!--                    height="100">-->
+                <input class="form__input" placeholder="Damage Amount" th:field="*{healthClaim.damage}" type="number" min=1 >
+                <input class="form__input" placeholder="Date of Loss" name="date" type="date" max="2021-11-17">
                 <input class="form__input" placeholder="Proof document" type="file" name="file">
                 <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Submit</button>
             </form>

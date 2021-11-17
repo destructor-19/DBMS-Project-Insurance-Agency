@@ -44,7 +44,11 @@
         <!-- <div class="container"> -->
         <div class="d-flex">
             <div th:replace="profile/userprofile::sidebar"></div>
+
             <div class="col d-flex flex-column">
+
+<!--                vehicle-->
+
                 <div id="vehicle" class="pt-5 text-center">
                     <h1 class="about-us-heading text-center mx-auto">Vehicles</h1>
 
@@ -58,6 +62,10 @@
                             class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">Add
                             Vehicle</button></a>
                 </div>
+
+<!--                property-->
+
+
                 <div id="property" class="pt-5 text-center">
                     <h1 class="about-us-heading text-center mx-auto">Property</h1>
 
@@ -71,6 +79,10 @@
                             class="btn no-outline custom-radius-border bg-theme1 font-weight-bold text-white py-2 px-4">Add
                             Property</button></a>
                 </div>
+
+<!--                active policies-->
+
+
                 <div id="policies" class="pt-5 text-center">
                     <h1 class="about-us-heading text-center mx-auto">Active Policies</h1>
 
@@ -81,7 +93,7 @@
                             <h2 class=" text-color-dark-blue" th:text="${'Record ID: '+policy.getKey().getId()}"></h2>
                             <a th:href="@{/policy/{id}(id=${policy.getKey().getPolicyId()})}">
                                 <p class=" text-color-dark-blue"
-                                    th:text="${'Policy ID: '+policy.getKey().getPolicyId()}">
+                                    th:text="${'Policy Name: '+policy.getKey().getPolicyId()}">
                                 </p>
                             </a>
 
@@ -97,6 +109,10 @@
                         </div>
                     </div>
                 </div>
+
+
+<!--                active claims-->
+
                 <div id="activeclaims" class="pt-5 text-center">
                     <div th:fragment="claimlist">
                         <h1 class="about-us-heading text-center mx-auto">Unsetteled Claims</h1>
@@ -142,6 +158,10 @@
                         </div>
                     </div>
                 </div>
+
+
+<!--                passed claims-->
+
                 <div id="processedclaims" class="pt-5 text-center">
                     <h1 class="about-us-heading text-center mx-auto">Passes Claims</h1>
 
@@ -188,6 +208,10 @@
                         </div>
                     </div>
                 </div>
+
+
+<!--                transactions-->
+
                 <div id="transactions" class="pt-5 text-center">
                     <h1 class="about-us-heading text-center mx-auto">Transaction Details</h1>
 

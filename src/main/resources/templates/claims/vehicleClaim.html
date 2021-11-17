@@ -19,8 +19,8 @@
                 enctype="multipart/form-data" method="post">
                 <h1 class="h3 mb-3 font-weight-normal">Vehicle Claim</h1>
 
-                <input class="form__input" type="text" th:field="*{vehicleClaim.damage}">
-                <input class="form__input" type="date" name="date">
+                <input class="form__input" type="number" min=1 th:field="*{vehicleClaim.damage}">
+                <input class="form__input" type="date" name="date" max="2021-11-17">
                 <input class="form__input" type="file" name="file">
                 <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Submit</button>
 
