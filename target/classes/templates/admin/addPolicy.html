@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Add Policy</title>
+        <link th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet">
+        <link rel="stylesheet" th:href="@{/css/homepage.css}">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" th:href="@{/css/loginpage.css}">
+        <link rel="stylesheet" th:href="@{/css/login.css}">
+        <style>
+            body {
+                background-color: #2c3338;
+            }
+
+        </style>
+    </head>
+
+    <body class="quicksand text-center text-light">
+        <div th:replace="admin/adminHome::navbar"></div>
+        <div class="form-div">
+            <form class="form-signin form login" method="post" th:action="@{/admin/policy/add}" th:object="${policy}">
+                <h1 class="h3 mb-3 font-weight-normal">Add Policy</h1>
+                <input class="form__input" type="text" th:field="*{name}" placeholder="Name of Policy" required>
+                <select id="policyType" class="form__input" th:field="*{category}" required>
+                    <option value="life">Life insurance</option>
+                    <option value="health">Health</option>
+                    <option value="vehicle">vehicle</option>
+                    <option value="property">property</option>
+                </select>
+                <input class="form__input" placeholder="premium" type="number" min=1 th:field="*{premium}" required>
+                <input class="form__input" placeholder="Claim amount" type="number" min=1 value=""
+                    th:field="*{maxClaimAmount}" required>
+                <input class="form__input" placeholder="Things Covered" type="text" th:field="*{thingsCovered}"
+                    required>
+                <select class="form__input" th:field="*{expirationStatus}" required>
+                    <option value="expired">Expired</option>
+                    <option value="active">Active</option>
+                </select>
+                <button class="btn btn-lg text-white bg-theme1 btn-block" type="submit">Submit</button>
+            </form>
+        </div>
+
+
+        <!-- fontawesome script -->
+        <script src="https://kit.fontawesome.com/1f4b1ad491.js" crossorigin="anonymous"></script>
+
+        <!-- bootstrap script -->
+        <script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>

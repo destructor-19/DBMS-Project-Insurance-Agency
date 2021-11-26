@@ -38,7 +38,7 @@ public class RegistrationEmailListener implements ApplicationListener<OnRegistra
         SimpleMailMessage email = new SimpleMailMessage();
         email.setTo(recipient);
         email.setSubject(subject);
-        email.setText(message + "http://localhost:8080" + url);
+        email.setText(message + "http://insurance-agency-spring-boot.herokuapp.com" + url);
         mailSender.send(email);
     }
 }
